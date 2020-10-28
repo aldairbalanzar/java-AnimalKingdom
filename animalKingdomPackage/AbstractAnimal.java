@@ -15,14 +15,27 @@ abstract class AbstractAnimal {
     public AbstractAnimal(String name, int yearDiscovered) {
         maxId++;
         id = maxId;
+
         this.name = name;
         this.yearDiscovered = yearDiscovered;
-        this.stomach = new ArrayList<>();
+        this.stomach = new ArrayList<String>();
     }
 
-    public List<String> eat(String food) {
+    public void eat(String food) {
         stomach.add(food);
-        return stomach;
+    }
+
+    public List<String> getStomach() {
+        return this.stomach;
+    }
+
+    // Getters
+    public String getName() {
+        return this.name;
+    }
+
+    public int getYearDiscovered() {
+        return this.yearDiscovered;
     }
 
     abstract String getMovementType();

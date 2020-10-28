@@ -1,5 +1,8 @@
 package animalKingdomPackage;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Main {
     private static void animalKingdom() {
         // Mammals
@@ -23,11 +26,53 @@ public class Main {
         Fish catfish = new Fish("Catfish", 1817);
         Fish perch = new Fish("Perch", 1758);
 
-        System.out.println(panda.toString());
-        System.out.println(pigeon.toString());
-        System.out.println(salmon.toString());
+        // List containing animals for prints
+        List<AbstractAnimal> animals = new ArrayList<>();
+        List<AbstractAnimal> lastList = new ArrayList<>();
 
-        System.out.println(perch.toString());
+        // Testing out eat method
+//        panda.eat("apple");
+//        panda.eat("banana");
+//        panda.eat("grapes");
+
+        animals.add(panda);
+        animals.add(zebra);
+        animals.add(koala);
+        animals.add(armadillo);
+        animals.add(raccoon);
+        animals.add(sloth);
+        animals.add(bigfoot);
+        animals.add(pigeon);
+        animals.add(peacock);
+        animals.add(toucan);
+        animals.add(parrot);
+        animals.add(swan);
+        animals.add(salmon);
+        animals.add(catfish);
+        animals.add(perch);
+
+//        System.out.println("alphabetical name sort: ");
+//        animals.sort((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
+
+//        System.out.println("year discovered descending: ");
+//        animals.sort((a1, a2) -> a2.getYearDiscovered() - a1.getYearDiscovered());
+
+//        System.out.println("movement sort: ");
+//        animals.sort((a1, a2) -> a1.getMovementType().compareToIgnoreCase(a2.getMovementType()));
+
+//        System.out.println("breathing sort: ");
+//        animals.sort((a1, a2) -> a1.getBreathingType().compareToIgnoreCase(a2.getBreathingType()));
+
+//        animals.stream().filter(a -> a.getBreathingType() == "lungs").forEach((a) -> System.out.println(a.getName() + " - " + a.getBreathingType()));
+
+//        animals.stream().filter(a -> a.getBreathingType() == "lungs" && a.getYearDiscovered() == 1758).forEach((a) -> System.out.println(a.getName() + " - " + a.getBreathingType() + " - " + a.getYearDiscovered()));
+
+//        animals.stream().filter(a -> a.getBreathingType() == "lungs" && a.getReproductionType() == "eggs").forEach((a) -> System.out.println(a.getName() + " - " + a.getReproductionType() + " - " + a.getBreathingType()));
+
+        animals.stream().filter(a -> a.getYearDiscovered() == 1758);
+        animals.sort((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
+        animals.forEach((a) -> System.out.println(a.getName() + " - " + a.getYearDiscovered()));
+
     }
 
     public static void main(String[] args) {
