@@ -21,7 +21,7 @@ public class Fish extends AbstractAnimal{
     @Override
     public String toString() {
         return "\n id: " + id + "\n name: " + name + "\n year discovered: " + yearDiscovered + "\n type of movement: " + getMovementType() +
-                "\n type of breathing: " + getBreathingType() + "\n type of reproduction: " + getReproductionType();
+                "\n type of breathing: " + getBreathingType() + "\n type of reproduction: " + getReproductionType() + "\n";
 
     }
 }
