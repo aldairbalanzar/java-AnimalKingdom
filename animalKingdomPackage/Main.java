@@ -28,7 +28,7 @@ public class Main {
 
         // List containing animals for prints
         List<AbstractAnimal> animals = new ArrayList<>();
-        List<AbstractAnimal> lastList = new ArrayList<>();
+        List<AbstractAnimal> filteredList = new ArrayList<>();
 
         // Testing out eat method
 //        panda.eat("apple");
@@ -63,16 +63,15 @@ public class Main {
 //        System.out.println("breathing sort: ");
 //        animals.sort((a1, a2) -> a1.getBreathingType().compareToIgnoreCase(a2.getBreathingType()));
 
+//        System.out.println("breathe w/ lungs & discovered in 1758: ");
 //        animals.stream().filter(a -> a.getBreathingType() == "lungs").forEach((a) -> System.out.println(a.getName() + " - " + a.getBreathingType()));
 
-//        animals.stream().filter(a -> a.getBreathingType() == "lungs" && a.getYearDiscovered() == 1758).forEach((a) -> System.out.println(a.getName() + " - " + a.getBreathingType() + " - " + a.getYearDiscovered()));
-
+//        System.out.println("lay eggs & breate w/ lungs: ");
 //        animals.stream().filter(a -> a.getBreathingType() == "lungs" && a.getReproductionType() == "eggs").forEach((a) -> System.out.println(a.getName() + " - " + a.getReproductionType() + " - " + a.getBreathingType()));
 
-        animals.stream().filter(a -> a.getYearDiscovered() == 1758);
-        animals.sort((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
-        animals.forEach((a) -> System.out.println(a.getName() + " - " + a.getYearDiscovered()));
-
+        System.out.println("alphabetical sort & discovered in 1758: ");
+        animals.stream().filter(a -> a.getYearDiscovered() == 1758).sorted((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()))
+                .forEach((a) -> System.out.println(a.getName() + " - " + a.getYearDiscovered()));
     }
 
     public static void main(String[] args) {
