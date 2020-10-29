@@ -4,6 +4,22 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main {
+
+    // Function that takes an AbstractAnimal list and criteria to be added to returned list
+    private static List<AbstractAnimal> filterAnimal(List<AbstractAnimal> list, CheckAnimal func) {
+        // temporary list that will hold objects that meet criteria. Will be returned.
+        List<AbstractAnimal> tempList = new ArrayList<>();
+        // iterate through list passed through function
+        for(AbstractAnimal a : list) {
+            // run each object through our criteria, if criteria returns true, add it to our tempList
+            if(func.check(a)) {
+                tempList.add(a);
+            }
+        }
+        // return our list with objects that met criteria
+        return tempList;
+    }
+
     private static void animalKingdom() {
         // Mammals
         Mammal panda = new Mammal("Panda", 1869);
@@ -28,7 +44,6 @@ public class Main {
 
         // List containing animals for prints
         List<AbstractAnimal> animals = new ArrayList<>();
-        List<AbstractAnimal> filteredList = new ArrayList<>();
 
         // Testing out eat method
 //        panda.eat("apple");
@@ -72,6 +87,15 @@ public class Main {
         System.out.println("alphabetical sort & discovered in 1758: ");
         animals.stream().filter(a -> a.getYearDiscovered() == 1758).sorted((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()))
                 .forEach((a) -> System.out.println(a.getName() + " - " + a.getYearDiscovered()));
+
+        System.out.println("\nnew list method: ");
+        // create new list that will hold filtered objects:
+            // 1. filteredList will equal func that will take in list to filter and criteria of filter (function is declared at top of file)
+        List<AbstractAnimal> filteredList = filterAnimal(animals, a -> a.getYearDiscovered() == 1758);
+        // filteredList can now be treated like any other list, here we sort it
+        filteredList.sort((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
+        // print every single object in filteredList with .forEach()
+        filteredList.forEach((a) -> System.out.println(a.getName() + " - " + a.getYearDiscovered()));
     }
 
     public static void main(String[] args) {
